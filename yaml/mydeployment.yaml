@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-red-deployment
+  labels:
+    app: node-red
+spec:
+  selector:
+    matchLabels:
+      app: node-red
+  template:
+    metadata:
+      labels:
+        app: node-red
+    spec:
+      containers:
+        - name: node-red-docker-container
+          image: registry.eu-de.bluemix.net/nbiot_namespace/node-red-docker:1
+          ports:
+          - name: httpport
+            containerPort: 1880
+            protocol: TCP
+          - name: udpport
+            containerPort: 1882
+            protocol: UDP
+      imagePullSecrets:
+        - name: my-image-pull-secret
