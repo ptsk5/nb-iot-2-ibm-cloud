@@ -274,13 +274,13 @@ At the beginning, we need to initialise Node-Red and install required modules wh
 
 #### UI for device1
 
-13. Import `flows/cf_ui_4_device1_flow.json` (Import -> Clipboard and past the content of this `.json` file) and click on Deploy button.
+16. Import `flows/cf_ui_4_device1_flow.json` (Import -> Clipboard and past the content of this `.json` file) and click on Deploy button.
 
     ![UI for device1 flow](/doc_images/cf_ui_4_device1_flow.png)
 
 #### Devices overview
 
-13. Import `flows/cf_devices_overview_flow.json` (Import -> Clipboard and past the content of this `.json` file) and click on Deploy button.
+17. Import `flows/cf_devices_overview_flow.json` (Import -> Clipboard and past the content of this `.json` file) and click on Deploy button.
 
     ![Devices overview flow](/doc_images/cf_devices_overview_flow.png)
 
