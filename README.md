@@ -1,6 +1,6 @@
 # Integration of NB-IoT device with IBM Cloud
 ## About
-Following steps describe an example of integration between the device, which communicates over the Narrowband IoT (NB-IoT) Low Power Wide Area Network (LPWAN) provided by a local operator, and IBM Cloud. 
+The following steps describe an example of integration between the device, which communicates over the Narrowband IoT (NB-IoT) Low Power Wide Area Network (LPWAN) provided by a local operator, and IBM Cloud. 
 
 ![Overview](/doc_images/overview.png)
 
@@ -40,19 +40,23 @@ The reader is expected to have at least a free account at IBM Cloud (you can cre
     ```
     $ ibmcloud login -a https://api.eu-de.bluemix.net
     ```
-4. Create a namespace (e.g. _nbiot_namespace_, in my case):
+4. Log your local Docker daemon into the IBM Cloud Container Registry:
+    ```
+    ibmcloud cr login 
+    ```
+5. Create a namespace (e.g. _nbiot_namespace_, in my case):
     ```
     $ ibmcloud cr namespace-add nbiot_namespace
     ```
-5. Pull node-red-docker image from Docker Hub:
+6. Pull node-red-docker image from Docker Hub:s
     ```
     $ docker pull nodered/node-red-docker:latest
     ```
-6. Choose a repository (_node-red-docker_, in my case) and tag (I simply used number _1_) by which you can identify the image (look for registry URL in the Quick Start, e.g. _de.icr.io_):
+7. Choose a repository (_node-red-docker_, in my case) and tag (I simply used number _1_) by which you can identify the image (look for registry URL in the Quick Start, e.g. _de.icr.io_):
     ```
     $ docker tag nodered/node-red-docker de.icr.io/nbiot_namespace/node-red-docker:1
     ```
-7. Push the image into the private registry and verify that your image is in there: 
+8. Push the image into the private registry and verify that your image is in there: 
     ```
     $ docker push de.icr.io/nbiot_namespace/node-red-docker:1
     $ ibmcloud cr image-list
@@ -62,7 +66,7 @@ The reader is expected to have at least a free account at IBM Cloud (you can cre
 
 ### Create a cluster
 1. In the IBM Cloud Catalog find **Kubernetes Service**. Create an instance by choosing _Free_ cluster type and by providing _Cluster name_ (e.g. myCluster).
-2. Follow Gain access to your cluster to install CLI tools and the Kubernetes Service plug-in (if not already installed).
+2. Gain access to your cluster to install CLI tools and the Kubernetes Service plug-in (if not already installed).
 3. Target the Kubernetes Service region (e.g. _eu-central_), download the Kubernetes configuration files, and export KUBECONFIG environment variable:
     ```
     $ ibmcloud ks region-set eu-central

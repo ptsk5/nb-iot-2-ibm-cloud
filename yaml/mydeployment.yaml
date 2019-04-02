@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node-red-docker-container
-          image: registry.eu-de.bluemix.net/nbiot_namespace/node-red-docker:1
+          image: de.icr.io/nbiot_namespace/node-red-docker:1
           ports:
           - name: httpport
             containerPort: 1880
